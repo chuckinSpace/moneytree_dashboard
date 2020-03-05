@@ -19,7 +19,7 @@ const rrfConfig = {
 	userProfile: "users",
 	useFirestoreForProfile: true
 }
-console.log(firebaseConfig)
+
 // Initialize firebase instance
 firebase.initializeApp(firebaseConfig)
 // Initialize other services on firebase instance

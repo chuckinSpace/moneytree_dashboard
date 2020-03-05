@@ -3,40 +3,28 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import Login from "./components/auth/Login"
 import SignUp from "./components/auth/SignUp"
 import Home from "./components/Home/Home"
+import { Grid } from "@material-ui/core"
+import NavBar from "./components/NavBar/NavBar"
+import PrivateRoute from "./components/auth/PrivateRoute"
 
 function App() {
 	return (
-		<div className="App">
+		<Grid>
+			<NavBar />
 			<Router>
-				<div>
-					<nav>
-						<ul>
-							<li>
-								<Link to="/">Home</Link>
-							</li>
-							<li>
-								<Link to="/login">Login</Link>
-							</li>
-							<li>
-								<Link to="/signUp">SignUp</Link>
-							</li>
-						</ul>
-					</nav>
-
-					<Switch>
-						<Route path="/login">
-							<Login />
-						</Route>
-						<Route path="/signUp">
-							<SignUp />
-						</Route>
-						<Route path="/">
-							<Home />
-						</Route>
-					</Switch>
-				</div>
+				<Switch>
+					<Route path="/login">
+						<Login />
+					</Route>
+					<Route path="/signUp">
+						<SignUp />
+					</Route>
+					<PrivateRoute path="/">
+						<Home />
+					</PrivateRoute>
+				</Switch>
 			</Router>
-		</div>
+		</Grid>
 	)
 }
 
